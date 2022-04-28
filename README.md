@@ -22,7 +22,7 @@ This project enables the users to sae the qualifying loans into a CSV file
 
 ## Usage
 
-When user is prompted for questions all questions must be answered and ensure that the new file name is different from the original file
+*   When user is prompted for questions all questions must be answered and ensure that the new file name is different from the original file
 <img src="Screenshot.png" width="50%" height="50%">
 ---
 
