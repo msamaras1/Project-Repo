@@ -10,6 +10,8 @@ This project enables the users to sae the qualifying loans into a CSV file
 *   CLI
 *   Git Bash
 *   Git Hub
+*   questionary Library
+*   fire Library
 ---
 
 ## Installation Guide
@@ -20,8 +22,8 @@ This project enables the users to sae the qualifying loans into a CSV file
 
 ## Usage
 
-This section should include screenshots, code blocks, or animations explaining how to use your project.
-
+When user is prompted for questions all questions must be answered and ensure that the new file name is different from the original file
+![Employee data]("Screenshot 2022-04-28 124222.png"?raw=true "Screen")
 ---
 
 ## Contributors
