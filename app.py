@@ -111,15 +111,20 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
-    target_path=questionary.text("type in the full path including the file name where you would like to save the results?").ask()
+    target_path=questionary.text("type in the full path including the CSV file name where you would like to save the results?").ask()
     answer='N'
     csvpath = Path(target_path)
-    answer=questionary.text("Are you sure that you want to save the data to the csv file?Y or N").ask()
+    answer=questionary.text("Do you want to save the data to the csv file?Y or N").ask()
     answer=answer.capitalize() 
     if answer == 'Y':
-        with open(csvpath, "w", newline="") as csvfile:
-            csvwriter = csv.writer(csvfile, delimiter=',')                
-            csvwriter.writerows(qualifying_loans)
+        if qualifying_loans.len<=0:
+            sys.exit("There are no qualifying loans for the criteria")
+        else:
+            with open(csvpath, "w", newline="") as csvfile:
+                csvwriter = csv.writer(csvfile, delimiter=',')                
+                csvwriter.writerows(qualifying_loans)
+    else:
+        sys.exit("you have chosen not to save the file and the program will be closed")
     
 def run():
     """The main function for running the script."""
@@ -134,9 +139,11 @@ def run():
     qualifying_loans = find_qualifying_loans(
         bank_data, credit_score, debt, income, loan_amount, home_value
     )
-
+    if len(qualifying_loans)<=0:
+        sys.exit("Exiting the program since there are no qualifying loans")
     # Save qualifying loans
-    save_qualifying_loans(qualifying_loans)
+    else:
+        save_qualifying_loans(qualifying_loans)
 
 
 if __name__ == "__main__":
